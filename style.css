@@ -1,0 +1,508 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --yell: #fcd303;
+  --pnk: #e5a9a2;
+  --pnk-light: #f1b9b1;
+  --bg-main: #18181b;
+  --w: #ffffff;
+  --blk: #111111;
+  --light-yell: #fdf8e7;
+
+  --card-pad: calc(1rem + 0.5vw);
+}
+
+body {
+  background-color: var(--bg-main);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.dashboard-layout {
+  width: 100%;
+  height: calc(100vh - 3rem);
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 16px;
+  grid-template-areas:
+    "man app fonts strength"
+    "man flex flex strength"
+    "redefine flex flex phone"
+    "train train rope phone";
+}
+
+.panel {
+  background: var(--w);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  padding: var(--card-pad);
+  color: var(--blk);
+}
+
+.athlete-panel {
+  grid-area: man;
+  padding: 0;
+  background: #000;
+}
+.athlete-portrait {
+  width: 100%;
+  height: 100%;
+  background: url("./assets/photo1.png") center/cover no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top-nav-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--w);
+  font-size: 1.2rem;
+}
+.metrics-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+.metric-block {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+.icon-ring {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.highlight-txt {
+  color: var(--yell);
+}
+.metric-label {
+  font-size: 0.6rem;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+.metric-label b {
+  font-size: 0.8rem;
+}
+
+.download-promo {
+  grid-area: app;
+  background: var(--yell);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.signal-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 24px;
+}
+.signal-bars div {
+  width: 4px;
+  background: #000;
+  border-radius: 2px;
+}
+.signal-bars div:nth-child(1) {
+  height: 24px;
+}
+.signal-bars div:nth-child(2) {
+  height: 20px;
+}
+.signal-bars div:nth-child(3) {
+  height: 16px;
+}
+.signal-bars div:nth-child(4) {
+  height: 12px;
+}
+.signal-bars div:nth-child(5) {
+  height: 8px;
+}
+
+.download-promo h2 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 10px;
+  z-index: 2;
+}
+.store-links {
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+  margin-top: 10px;
+}
+.store-btn {
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.store-btn i {
+  font-size: 1.5rem;
+}
+.store-btn div {
+  font-size: 0.7rem;
+  line-height: 1;
+}
+.store-btn span {
+  font-size: 0.5rem;
+}
+.watermark-letter-a {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  font-size: 15rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+  z-index: 1;
+  font-style: italic;
+}
+
+.typography-info {
+  grid-area: fonts;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tiny-label {
+  font-size: 0.6rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+.bold-header {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+.color-swatches {
+  margin-top: auto;
+  height: 12px;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.swatch-one {
+  flex: 1.5;
+  background: var(--pnk);
+}
+.swatch-two {
+  flex: 1;
+  background: var(--yell);
+}
+.swatch-three {
+  flex: 1;
+  background: #fff;
+}
+.swatch-four {
+  flex: 1;
+  background: #000;
+}
+
+.motivation-panel {
+  grid-area: strength;
+  display: flex;
+  flex-direction: column;
+}
+.time-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.color-squares {
+  display: flex;
+}
+.square-y {
+  width: 10px;
+  height: 10px;
+  background: var(--yell);
+}
+.square-b {
+  width: 10px;
+  height: 10px;
+  background: #000;
+}
+
+.hero-headline {
+  margin-top: 30px;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.venue-info {
+  margin-top: auto;
+  background: var(--pnk-light);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.venue-header {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 2;
+}
+.map-marker {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  color: var(--yell);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.street-address {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.website-link {
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 2;
+  margin-top: 20px;
+}
+.watermark-letter-b {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  font-style: italic;
+}
+
+.core-branding {
+  grid-area: flex;
+  background: var(--light-yell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-graphic {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+}
+
+.brand-graphic h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.watermark-letter-c {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  font-size: 25rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  line-height: 1;
+  font-style: italic;
+}
+
+.push-limits-panel {
+  grid-area: redefine;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.push-limits-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.premium-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.round-initial {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  color: var(--yell);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1rem;
+}
+.premium-tag span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.coaching-panel {
+  grid-area: train;
+  background: var(--pnk);
+  display: flex;
+  gap: 16px;
+}
+.facility-preview {
+  flex: 0.8;
+  background: var(--yell) url("./assets/visit.png") center/cover no-repeat;
+  border-radius: 20px;
+  position: relative;
+}
+.coaching-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.coaching-details h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.coaching-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.stats-counter h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.stats-counter span {
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+.profile-stack {
+  display: flex;
+}
+.profile-stack img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--pnk);
+  margin-left: -10px;
+}
+.profile-stack img:first-child {
+  margin-left: 0;
+}
+
+.action-shot {
+  grid-area: rope;
+  background: var(--yell);
+  padding: 0;
+}
+.watermark-letter-d {
+  position: absolute;
+  left: -20px;
+  bottom: -30px;
+  font-size: 15rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  font-style: italic;
+  z-index: 1;
+}
+.workout-image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/girl.png") center/cover no-repeat;
+  z-index: 2;
+}
+
+.device-preview {
+  grid-area: phone;
+  background: var(--pnk-light);
+}
+.device-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.mini-initial {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  background: #000;
+  color: var(--yell);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  font-size: 0.6rem;
+}
+.ui-mockup-layer {
+  width: 100%;
+  margin-top: 20px;
+  transform: translateY(0%);
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .hero-headline {
+    font-size: 2rem;
+  }
+  .brand-graphic h1 {
+    font-size: 2.5rem;
+  }
+}
